@@ -1,0 +1,95 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import PricingPlans from '../components/Pricing.astro';
+import FAQ from '../components/FAQ.astro';
+import channelTypes from '../data/channeltypes.json';
+import {slugify} from '../utils/slugify'
+
+export async function getStaticPaths() {
+  return channelTypes.map((type) => ({
+    params: { type: slugify(type) },
+    props: { channelType: type },
+  }));
+}
+
+interface Props {
+  channelType: string;
+}
+const { channelType } = Astro.props;
+const currentYear = new Date().getFullYear();
+
+// --- Content ---
+// Using H1 from previous logic as the main title for PageHeader
+const pageHeaderTitle = `Best ${channelType} IPTV Channels in ${currentYear}: Premium Streams`;
+// Using meta description also as subtitle for PageHeader
+const pageHeaderSubtitle = `Stream the top ${channelType} channels on IPTV in HD quality. Updated list of free & premium ${channelType} streams, schedules, and how to watch on any device.`;
+const pageBreadcrumbs = [
+    { name: "Home", href: "/" },
+    { name: channelType, href: `/iptv-${slugify(channelType)}-channels` } // Dynamic current page
+];
+
+const pageTitleTag = `Best ${channelType} IPTV Channels in FHD/4K - ${currentYear} - Best streaming channels`; // Original Title for <title> tag
+
+const h2 = `The Ultimate Guide to Watching ${channelType} Channels on IPTV in 2024`;
+const personalizedParagraph = `If you're searching for the best way to stream ${channelType} content online, you've come to the right place. Our team spent over 100 hours testing 75+ IPTV providers to bring you this hand-picked selection of the most reliable ${channelType} channels available today. Whether you're looking for sports games, films, or watching your best shows, we've got you covered with both free and premium streaming options that actually work.`;
+
+const featuresList = [
+    { text: "Updated Daily: We monitor channel availability 24/7 to remove dead links", icon: "✔" },
+    { text: "Quality Tested: Every stream is verified for HD reliability and minimal buffering", icon: "✔" },
+    { text: "Device Friendly: Works seamlessly on Firestick, Android TV, iOS, and Smart TVs", icon: "✔" },
+    { text: "No Registration Needed: Instant access to live streams without signups", icon: "✔" }
+];
+---
+
+{/* Use original title for the HTML <title> tag */}
+<Layout title={pageTitleTag} description={pageHeaderSubtitle}>
+
+<div class="min-h-screen" >
+
+  {/* Use the enhanced PageHeader component */}
+  <PageHeader
+    title={pageHeaderTitle}
+    subtitle={pageHeaderSubtitle}
+    breadcrumbs={pageBreadcrumbs}
+  />
+  
+
+  {/* Personalized Section - Revised Layout */}
+  <section class="bg-gray-950 text-white py-16 md:py-20 px-4">
+    <div class="container mx-auto max-w-5xl"> {/* Wider container */}
+       <h2 class="text-3xl md:text-4xl font-bold text-center mb-6">
+         {h2}
+       </h2>
+       <p class="text-lg text-gray-300 mb-12 leading-relaxed text-center max-w-3xl mx-auto">
+         {personalizedParagraph}
+       </p>
+
+       {/* Restyled Features List */}
+       <div class="max-w-4xl mx-auto">
+          <h3 class="text-2xl font-semibold text-center text-red-500 mb-8">What makes our list different?</h3>
+           <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+             {featuresList.map(feature => (
+               <div class="flex items-start p-4 bg-gray-900 border border-gray-800 rounded-lg">
+                 <span class="text-green-500 text-2xl mr-4 mt-1 flex-shrink-0">{feature.icon}</span>
+                 <div>
+                    <p class="text-gray-200 font-medium">{feature.text}</p>
+                 </div>
+               </div>
+             ))}
+           </ul>
+       </div>
+    </div>
+  </section>
+  {/* Pricing Section (Assuming it has its own dark background) */}
+  <PricingPlans />
+
+  {/* FAQ Section (Assuming it has its own dark background) */}
+   <section class="bg-black text-white pt-16 md:pt-20 pb-16 md:pb-24 px-4"> {/* Added explicit bg-black */}
+    <div class="container mx-auto">
+       <FAQ title={`Common ${channelType} IPTV Questions`} maxItems={4} />
+    </div>
+  </section>
+
+</div>
+</Layout>

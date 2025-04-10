@@ -1,0 +1,39 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import ContactForm from '../components/ContactForm.astro';
+
+const contactEmail = "support@youriptv.com";
+const contactPhone = "+12 345 67890";
+
+const pageBreadcrumbs = [
+  { name: "Home", href: "/" },
+  { name: "Contact", href: "/contact" }
+];
+---
+
+<Layout title="Contact Us - YourIPTV" description="Contact YourIPTV for customer support and inquiries.">
+  <PageHeader
+    title="Contact Us"
+    subtitle="We're here to help. Fill out the form below or reach out via email or phone."
+    breadcrumbs={pageBreadcrumbs}
+  />
+
+  <section class="bg-black text-white py-16 md:py-20 px-4">
+    <div class="container mx-auto max-w-4xl">
+      <ContactForm />
+
+      <div class="mt-16 pt-10 border-t border-gray-800 text-center text-gray-400">
+        <h3 class="text-xl font-semibold text-white mb-4">Other Ways to Reach Us</h3>
+        <div class="space-y-2">
+          <p>
+            <span class="font-medium text-gray-200">Email:</span> <a href={`mailto:${contactEmail}`} class="hover:text-red-500 transition-colors">{contactEmail}</a>
+          </p>
+          <p>
+            <span class="font-medium text-gray-200">Phone:</span> <span>{contactPhone}</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

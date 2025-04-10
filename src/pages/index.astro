@@ -1,0 +1,26 @@
+---
+import AboutUs from '../components/AboutUs.astro';
+import Hero from '../components/Hero.astro';
+import Offers from '../components/Offers.astro';
+import Pricing from '../components/Pricing.astro';
+import Subscriptions from '../components/Subscriptions.astro';
+import Compatible from '../components/Compatible.astro';
+import Testimonials from '../components/Testimonials.astro';
+import Layout from '../layouts/Layout.astro';
+import FAQ from '../components/FAQ.astro';
+---
+
+<Layout>
+	<Hero />
+	<AboutUs />
+	<Pricing />
+	<Offers />
+	<Subscriptions />
+	<Compatible />
+	<Testimonials />
+	<section class="bg-black text-white py-16 md:py-20 px-4">
+		<div class="container mx-auto">
+		   <FAQ />
+		</div>
+	  </section>
+</Layout>

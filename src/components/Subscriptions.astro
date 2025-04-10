@@ -1,0 +1,67 @@
+---
+const features = [
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>`,
+    title: "7-Day Money-Back Guarantee",
+    description: "Your satisfaction is our top priority! That's why we offer a 7-day money back guarantee"
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15.91 11.672a.375.375 0 010 .656l-5.603 3.113a.375.375 0 01-.557-.328V8.887c0-.286.307-.466.557-.327l5.603 3.112z" /></svg>`,
+    title: "4K and 8K Quality",
+    description: "4K and 8K Quality. Enjoy ultra-high-definition streaming with 4K and 8K quality."
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" /></svg>`,
+    title: "No Buffering",
+    description: "Our Channels Don't Buffer While You Are Watching."
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12a7.5 7.5 0 0015 0m-15 0a7.5 7.5 0 1115 0m-15 0H3m18 0h-1.5m-15.065-7.023L3 4.5m1.506 7.477l1.43-1.43m13.129 8.954l1.43-1.43M4.5 19.5l1.43-1.43M18 4.5l-1.43 1.43m-1.43 13.129l-1.43 1.43" /></svg>`,
+    title: "Easy To Setup",
+    description: "If You Are An In-Experienced User Contact us"
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>`,
+    title: "24/7 Support",
+    description: "Fast Support 24/7. Quick and responsive customer support available 24/7."
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" /></svg>`,
+    title: "Satisfaction Guaranteed",
+    description: "With Our Super Quality For A Super Price We Aim Your 100% Satisfaction."
+  },
+];
+---
+
+<section class="bg-black text-white py-16 md:py-24 px-4">
+  <div class="container mx-auto max-w-6xl">
+
+    <div class="text-center mb-12 md:mb-16">
+      <h3 class="text-red-500 uppercase tracking-wider font-semibold text-sm mb-2">
+        Why Choose Us
+      </h3>
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold">
+        Why Choose us for your IPTV Subscription
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+      {features.map((feature) => (
+        <div class="bg-gray-900/60 border border-gray-800 rounded-lg p-6 flex items-start space-x-4 transition-all duration-300 ease-in-out hover:border-red-600/50 hover:bg-gray-800/80 hover:shadow-lg hover:shadow-red-900/20">
+          <div class="flex-shrink-0 bg-red-900/30 p-3 rounded-full mt-1">
+             <Fragment set:html={feature.icon} class="w-6 h-6 text-red-400" />
+          </div>
+          <div>
+            <h4 class="text-lg font-semibold text-white mb-1">
+              {feature.title}
+            </h4>
+            <p class="text-gray-400 text-sm leading-relaxed">
+              {feature.description}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

@@ -1,0 +1,87 @@
+---
+const currentYear = new Date().getFullYear();
+
+const footerNavItems = [
+  { name: 'Home', href: '/' },
+  { name: 'Pricing', href: '/pricing' }, 
+  { name: 'Contact', href: '/contact' }, 
+  { name: 'FAQ', href: '/faq' }, 
+];
+
+const siteName = "YourIPTV"; 
+const siteDescription = "Your go-to source for high-quality IPTV streaming services.";
+---
+
+<footer class="bg-black border-t border-gray-800 text-gray-400 mt-auto">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+      <div class="md:col-span-1">
+        <a href="/" class="text-2xl font-bold text-white hover:text-red-500 transition-colors mb-2 inline-block">
+          {siteName}
+        </a>
+        <p class="text-sm">
+          {siteDescription}
+        </p>
+      </div>
+
+      <div class="md:col-span-2 grid grid-cols-2 sm:grid-cols-3 gap-8">
+        <div>
+          <h5 class="text-sm font-semibold text-gray-200 tracking-wider uppercase mb-3">Quick Links</h5>
+          <ul class="space-y-2">
+            {footerNavItems.slice(0, 4).map((item) => (
+              <li>
+                <a href={item.href} class="text-sm text-gray-400 hover:text-white transition-colors">
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Example: Add another column for Legal links if needed */}
+        {/*
+        <div>
+          <h5 class="text-sm font-semibold text-gray-200 tracking-wider uppercase mb-3">Legal</h5>
+          <ul class="space-y-2">
+            <li><a href="/privacy" class="text-sm text-gray-400 hover:text-white transition-colors">Privacy Policy</a></li>
+            <li><a href="/terms" class="text-sm text-gray-400 hover:text-white transition-colors">Terms of Service</a></li>
+          </ul>
+        </div>
+        */}
+
+        {/* Example: Add another column for Contact if needed */}
+        {/*
+        <div>
+          <h5 class="text-sm font-semibold text-gray-200 tracking-wider uppercase mb-3">Contact</h5>
+           <p class="text-sm">your@email.com</p>
+           <p class="text-sm">+12 345 67890</p>
+        </div>
+         */}
+      </div>
+    </div>
+
+    <div class="border-t border-gray-800 pt-8 text-center">
+      <p class="text-sm">
+        &copy; {currentYear} {siteName}. All rights reserved.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  /* Add this style to ensure the footer stays at the bottom */
+  html, body {
+    height: 100%;
+    margin: 0;
+  }
+  
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  footer {
+    margin-top: auto;
+  }
+</style>

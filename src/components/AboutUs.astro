@@ -1,0 +1,66 @@
+---
+// You can change the features here aba jalal
+const features = [
+  'We have the best IPTV experts',
+  'Ultra fast server',
+  '4K, FHD, SD & HD Quality',
+  'Support 24/7',
+  '7-Day Money-Back Guarantee',
+  'All devices compatibility',
+];
+
+---
+
+<section class="bg-black text-white py-16 md:py-24 px-4">
+  <div class="container mx-auto max-w-6xl">
+
+    <div class="text-center mb-12 md:mb-16">
+      <span class="inline-block bg-red-600 text-white text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full mb-3 animate-pulse">
+        Join, Enjoy it!
+      </span>
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold">
+        Stream all the TV you love
+      </h2>
+    </div>
+
+    <div class="flex flex-col md:flex-row items-center gap-12 md:gap-8 lg:gap-16">
+
+      <div class="md:w-1/2 text-center md:text-left">
+        <h3 class="text-red-500 uppercase tracking-wider font-semibold text-sm mb-2">
+          Best IPTV Subscription
+        </h3>
+        <h4 class="text-2xl md:text-3xl font-bold mb-6">
+          You Need A Perfect IPTV ?
+        </h4>
+        <ul class="space-y-3 mb-8 text-gray-300 text-left inline-block">
+          {features.map((feature) => (
+            <li class="flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-red-500 mr-2 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+              </svg>
+              <span>{feature}</span>
+            </li>
+          ))}
+        </ul>
+        <div>
+          <a
+            href="#"
+            class="inline-block bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 rounded transition duration-300 ease-in-out"
+          >
+            Order Now
+          </a>
+        </div>
+      </div>
+
+      <div class="md:w-1/2">
+        <img
+          src="/about.webp"
+          alt="TV displaying IPTV interface"
+          class="w-full h-auto rounded-lg shadow-xl"
+          loading="lazy"
+        />
+      </div>
+
+    </div>
+  </div>
+</section>

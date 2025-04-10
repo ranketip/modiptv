@@ -1,0 +1,27 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import FAQ from '../components/FAQ.astro';
+
+const pageBreadcrumbs = [
+  { name: "Home", href: "/" },
+  { name: "FAQ", href: "/faq" }
+];
+
+---
+
+<Layout title="FAQ - YourIPTV">
+<div class="min-h-screen">
+  <PageHeader
+    title="Frequently Asked Questions"
+    subtitle="Find answers to common questions about our IPTV service, setup, and compatibility."
+    breadcrumbs={pageBreadcrumbs}
+  />
+
+  <section class="bg-black text-white py-16 md:py-20 px-4">
+    <div class="container mx-auto">
+       <FAQ />
+    </div>
+  </section>
+</div>
+</Layout>

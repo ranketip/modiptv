@@ -1,0 +1,30 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import FAQ from '../components/FAQ.astro';
+import PricingPlans from '../components/Pricing.astro';
+
+const pageTitle = "Our Pricing Plans";
+const pageSubtitle = "Choose the perfect IPTV subscription plan that fits your needs and budget. All plans offer high performance and extensive channel access.";
+const pageBreadcrumbs = [
+  { name: "Home", href: "/" },
+  { name: "Pricing", href: "/pricing" }
+];
+---
+
+<Layout title="Pricing Plans - YourIPTV" description='' schema=''>
+    <div class="min-h-screen">
+  <PageHeader
+    title={pageTitle}
+    subtitle={pageSubtitle}
+    breadcrumbs={pageBreadcrumbs}
+  />
+  <PricingPlans />
+  <section class="bg-black text-white py-16 md:py-20 px-4">
+    <div class="container mx-auto">
+       <FAQ title="Pricing Questions" maxItems={8} />
+    </div>
+  </section>
+
+    </div>
+</Layout>

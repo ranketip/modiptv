@@ -1,0 +1,97 @@
+---
+import { Fragment } from 'astro/jsx-runtime';
+
+interface Breadcrumb {
+  name: string;
+  href: string;
+}
+
+interface Props {
+  title: string;
+  subtitle?: string;
+  breadcrumbs?: Breadcrumb[];
+}
+
+const { title, subtitle, breadcrumbs } = Astro.props;
+---
+
+<section class="bg-gradient-to-b from-black via-gray-950 to-black text-white relative overflow-hidden">
+  <div class="absolute inset-0 bg-black/30"></div>
+  <div class="container mx-auto max-w-4xl text-center px-4 relative z-10 py-20 md:py-28 lg:py-32">
+
+    {breadcrumbs && breadcrumbs.length > 0 && (
+      <nav aria-label="Breadcrumb" class="mb-4 animate-fade-in"> 
+        <ol class="flex items-center justify-center space-x-1 md:space-x-2 text-xs md:text-sm text-gray-400">
+          {breadcrumbs.map((crumb, index) => (
+            <li class="flex items-center">
+              {index > 0 && (
+                <svg class="flex-shrink-0 h-4 w-4 text-gray-500 mx-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              )}
+              {index < breadcrumbs.length - 1 ? (
+                <a href={crumb.href} class="hover:text-white transition-colors">{crumb.name}</a>
+              ) : (
+                <span class="font-medium text-gray-200" aria-current="page">{crumb.name}</span>
+              )}
+            </li>
+          ))}
+        </ol>
+      </nav>
+    )}
+
+   
+    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight animate-fade-in-up animate-delay-1">
+      {title}
+    </h1>
+
+ 
+    <div class="flex justify-center mb-6">
+      <div class="w-16 h-1 bg-red-600 rounded-full animate-fade-in-up animate-delay-2"></div>
+    </div>
+
+    
+    {subtitle && (
+      <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed animate-fade-in-up animate-delay-3">
+        {subtitle}
+      </p>
+    )}
+  </div>
+</section>
+
+<style>
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+     from { opacity: 0; }
+     to { opacity: 1; }
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+    opacity: 0; 
+  }
+
+  .animate-fade-in {
+     animation: fadeIn 0.8s ease-out forwards;
+     opacity: 0; 
+  }
+
+  .animate-delay-1 { animation-delay: 0.1s; }
+  .animate-delay-2 { animation-delay: 0.25s; }
+  .animate-delay-3 { animation-delay: 0.4s; }
+
+
+   .animate-fade-in-up, .animate-fade-in {
+     animation-fill-mode: forwards; 
+   }
+</style>
